@@ -1,0 +1,28 @@
+---
+- name: Run commands on managed nodes
+  hosts: n01603990-c-vm2.canadacentral.cloudapp.azure.com
+  become: true  
+  tasks:
+    # Get the last 3 lines of /etc/passwd
+    - name: Check last lines of /etc/passwd
+      command: tail -3 /etc/passwd
+      register: passwd_output
+
+    # Search for cloudadmins or wheel group in /etc/passwd
+    - name: Find cloudadmins or wheel users
+      debug:
+        msg: "Found {{ passwd_output.stdout_lines | regex_search('cloudadmins|wheel') }}"
+
+    # Get the last 3 lines of /etc/profile
+    - name: Check last lines of /etc/profile
+      command: tail -3 /etc/profile
+      register: profile_output
+
+    # Get disk usage information
+    - name: Get disk usage
+      command: df -Th
+      register: df_output
+
+    - name: Print disk usage output
+      debug:
+        msg: "{{ df_output.stdout }}"

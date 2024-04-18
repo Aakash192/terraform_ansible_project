@@ -1,0 +1,11 @@
+[linux]
+n01603990-c-vm1.canadacentral.cloudapp.azure.com
+n01603990-c-vm2.canadacentral.cloudapp.azure.com
+n01603990-c-vm3.canadacentral.cloudapp.azure.com
+
+[os:children]
+linux
+
+[linux:vars]
+ansible_user=aakashsuryavanshi
+ansible_connection=ssh
