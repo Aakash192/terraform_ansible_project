@@ -47,6 +47,7 @@ module "vmwindows-n01603990" {
   subnetid            = module.network-n01603990.subnetdetails.id
   storage_account_uri = module.common-n01603990.storage_account.primary_blob_endpoint
   machine_count       = 1
+  admin_password      = var.windows_admin_password
 }
 module "datadisk-n01603990" {
   source = "./modules/datadisk-n01603990"
@@ -69,5 +70,5 @@ module "database-n01603990" {
   rg-name = module.rgroup-n01603990.rg-name.name
   db_name = "assignmentdbn0160"
   administrator_login = "plsqladmin"
-  administrator_login_password = "REDACTED"
+  administrator_login_password = var.db_admin_password
 }

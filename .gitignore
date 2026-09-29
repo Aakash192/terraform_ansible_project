@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+
+# Local secrets and keys
+.env
+*.pem
+id_rsa*
+
+# OS files
+.DS_Store

@@ -42,7 +42,8 @@ variable "windows_version" {
   default = "latest"
 }
 variable "admin_password" {
-  default = "REDACTED"
+  type      = string
+  sensitive = true
 }
 variable "admin-username" {
   default = "aakashsuryavanshi"

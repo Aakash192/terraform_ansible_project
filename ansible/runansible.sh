@@ -1,4 +1,4 @@
-cd /home/aakash/automation/automation_assignment2-main/ansible
+cd "$(dirname "$0")"
 echo "------------------------------------"
 echo "Running ansible playbook"
 echo "------------------------------------"
